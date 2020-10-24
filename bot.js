@@ -1,11 +1,12 @@
 const config = require("./config.json"); //Load the config file
+//const logfile = require("./log.txt");
 const Discord = require("discord.js"); //Import discord.js
 const colors = require("colors"); //Allows use of colors in console
 const clear = require("clear"); //Lets us clear the console
 const client = new Discord.Client(); //Create Discord client instance
 
 //Logger
-function mlog(status, type, tcolor, message, mcolor) {
+function mlog(status, type, color, message, mcolor) {
   let cmsg = [];  //Array for console message
   let lmsg = [];  //Array for log message
 
@@ -27,14 +28,14 @@ function mlog(status, type, tcolor, message, mcolor) {
   cmsg.push("["+type+"]."+color); //Add type tag and color it to console message
   lmsg.push("["+type+"]");  //Add type tag to log message
 
-  console.log(cmsg.prototype.toString());
+  console.log(cmsg.join(""));
 }
 
 //Does initial setup when client is ready
 client.on("ready", () => {
   clear();
   client.user.setUsername(config.username.toString());
-  mlog("OK", "LOGIN". "blue", "Cleared Console")
+  mlog("OK", "LOGIN", "blue", "Cleared Console", "cyan")
   /*
   console.log("[OK] ".green + "[LOGIN] ".blue + "Cleared console".cyan);
   console.log("[OK] ".green + "[LOGIN] ".blue + "Connected".cyan);
