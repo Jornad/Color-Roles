@@ -6,35 +6,30 @@ const clear = require('clear'); //Lets us clear the console
 const client = new Discord.Client(); //Create Discord client instance
 
 //Logger
-function mlog(status, type, color, message, mcolor) {
+function mlog(status, type, message) {
   let cmsg = []; //Array for console message
   let lmsg = []; //Array for log message
+  let d = new Date();
+  let ctime = [d.getHours(), d.getMinutes(), d.getSeconds()];
 
   switch (status) { //Add status to arrays
-    case 'OK':
-      lmsg.push('[OK]');
+    case 'INFO':
+      console.log('['.white+ctime.join(':').cyan+' INFO'.green+']: '.white+message.white);
       break;
     case 'WARN':
-      cmsg.push('[WARN] ');
-      lmsg.push('[WARN] ');
+
       break;
     case 'ERROR':
-      cmsg.push('[ERROR] ');
-      lmsg.push('[ERROR] ');
+
       break;
   }
-
-  cmsg.push('[' + type + ']'); //Add type tag and color it to console message
-  lmsg.push('[' + type + ']'); //Add type tag to log message
-
-  console.log(cmsg.join(''));
 }
 
 //Does initial setup when client is ready
 client.on('ready', () => {
   clear();
   client.user.setUsername(config.username.toString());
-  mlog('OK', 'LOGIN', 'blue', 'Cleared Console', 'cyan');
+  mlog('INFO', 'LOGIN', 'Cleared Console');
   /*
   console.log('[OK] '.green + '[LOGIN] '.blue + 'Cleared console'.cyan);
   console.log('[OK] '.green + '[LOGIN] '.blue + 'Connected'.cyan);
