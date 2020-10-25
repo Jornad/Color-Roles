@@ -1,6 +1,5 @@
 {
   "name": "ColorRoles",
-  "version": "0.0.1",
   "description": "A discord bot that allows users to set their own color",
   "main": "bot.js",
   "author": "Jornad",

@@ -14,13 +14,13 @@ function mlog(status, type, message) {
 
   switch (status) { //Add status to arrays
     case 'INFO':
-      console.log('['.white+ctime.join(':').cyan+' INFO'.green+']: '.white+type.white+' - '.white+message.white);
+      console.log('['.white + ctime.join(':').cyan + ' INFO'.green+']: '.white + type.white + ' - '.white+message.white);
       break;
     case 'WARN':
-      console.log('['.white+ctime.join(':').cyan+' WARN'.yellow+']: '+type.white+' - '.white+message.white);
+      console.log('['.white + ctime.join(':').cyan + ' WARN'.yellow + ']: ' + type.white + ' - '.white+message.white);
       break;
     case 'ERROR':
-      console.log('['.white+ctime.join(':').cyan+' ERROR'.red+']: '+type.white+' - '.white+message.white);
+      console.log('['.white + ctime.join(':').cyan + ' ERROR'.red + ']: ' + type.white + ' - '.white + message.white);
       break;
   }
 }
@@ -30,18 +30,12 @@ client.on('ready', () => {
   clear();
   client.user.setUsername(config.username.toString());
   mlog('INFO', 'LOGIN', 'Cleared Console');
-  /*
-  console.log('[OK] '.green + '[LOGIN] '.blue + 'Cleared console'.cyan);
-  console.log('[OK] '.green + '[LOGIN] '.blue + 'Connected'.cyan);
-  console.log('[OK] '.green + '[LOGIN] '.blue + 'Logged in as: '.cyan + client.user.username + ' - ' + client.user.id);
-*/
+  mlog('INFO', 'LOGIN', 'Connected');
+  mlog('INFO', 'LOGIN', 'Logged in as ' + client.user.username + ' ' + client.user.id);
 
   client.user.setActivity(config.prefix + 'help'); //Set bot status to help message
-  /*
-  console.log('[OK] '.green + '[LOGIN] '.blue + 'Set game'.cyan);
-  console.log('[OK] '.green + '[LOGIN] '.blue + 'I am ready!'.cyan);
-  console.log('\n\n\n');
-  */
+  mlog('INFO', 'SETUP', 'Set game to ' + config.prefix + 'help');
+  mlog('INFO', 'SETUP', 'I am ready!')
 });
 
 //Main stuff
