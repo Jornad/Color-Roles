@@ -9,17 +9,17 @@ const client = new Discord.Client(); //Create Discord client instance
 function mlog(status, type, message) {
   let cmsg = []; //Array for console message
   let lmsg = []; //Array for log message
-  let d = new Date();
-  let ctime = [d.getHours(), d.getMinutes(), d.getSeconds()];
+  let d = new Date(); //Creates new date object
+  let ctime = [d.getHours(), d.getMinutes(), d.getSeconds()]; //makes an array of hh, mm, ss
 
-  switch (status) { //Add status to arrays
-    case 'INFO':
+  switch (status) {
+    case 'INFO': //Logs info
       console.log('['.white + ctime.join(':').cyan + ' INFO'.green + ']: '.white + type.white + ' - '.white + message.white);
       break;
-    case 'WARN':
+    case 'WARN':  //Logs warnings
       console.log('['.white + ctime.join(':').cyan + ' WARN'.yellow + ']: ' + type.white + ' - '.white + message.white);
       break;
-    case 'ERROR':
+    case 'ERROR': //logs errors
       console.log('['.white + ctime.join(':').cyan + ' ERROR'.red + ']: ' + type.white + ' - '.white + message.white);
       break;
   }
