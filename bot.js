@@ -14,13 +14,13 @@ function mlog(status, type, message) {
 
   switch (status) { //Add status to arrays
     case 'INFO':
-      console.log('['.white+ctime.join(':').cyan+' INFO'.green+']: '.white+message.white);
+      console.log('['.white+ctime.join(':').cyan+' INFO'.green+']: '.white+type.white+' - '.white+message.white);
       break;
     case 'WARN':
-
+      console.log('['.white+ctime.join(':').cyan+' WARN'.yellow+']: '+type.white+' - '.white+message.white);
       break;
     case 'ERROR':
-
+      console.log('['.white+ctime.join(':').cyan+' ERROR'.red+']: '+type.white+' - '.white+message.white);
       break;
   }
 }
