@@ -60,16 +60,6 @@ client.on("message", (message) => {
 
   } else if (command === "hex") { //Hex
     console.log("hex");
-  } else if (command === "rgb") { //Convert rgb
-    console.log("rgb");
-  } else if (command === "hsl") { //Convert hsl
-    console.log("hsl");
-  } else if (command === "hwb") { //Convert hwb
-    console.log("hwb");
-  } else if (command === "cmyk") { //Convert cmyk
-    console.log("cmyk");
-  } else if (command === "ncol") { //Cpnvert ncol
-    console.log("ncol");
   }
 
   console.log(command + "," + args);
