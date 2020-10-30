@@ -16,13 +16,23 @@ function mlog(status, type, message) {
     case "INFO": //Logs info
       console.log("[".white + ctime.join(":").cyan + " INFO".green + "]: ".white + type.white + " - ".white + message.white);
       break;
-    case "WARN":  //Logs warnings
+    case "WARN": //Logs warnings
       console.log("[".white + ctime.join(":").cyan + " WARN".yellow + "]: " + type.white + " - ".white + message.white);
       break;
     case "ERROR": //logs errors
       console.log("[".white + ctime.join(":").cyan + " ERROR".red + "]: " + type.white + " - ".white + message.white);
       break;
   }
+}
+
+//Set role
+function setrole(color) {
+
+}
+
+//Create role
+function newrole(color) {
+
 }
 
 //Does initial setup when client is ready
@@ -42,9 +52,25 @@ client.on("ready", () => {
 client.on("message", (message) => {
   if (!message.content.startsWith(config.prefix) || message.author.bot) return; //Ignore messages missing prefix or sent by another bot
 
-  const commandBody = message.content.slice(config.prefix.length);  //Slice the prefix off
-  const args = commandBody.split(' ');  //Splits command and args into an array
-  const command = args.shift().toLowerCase(); //Takes first element from the args array as the command
+  const commandBody = message.content.slice(config.prefix.length); //Slice the prefix off
+  const args = commandBody.split(' '); //Splits command and args into an array
+  const command = args.shift().toLowerCase(); //Takes off first element from the args array and uses that as the command
+
+  if (command === "help") {
+
+  } else if (command === "hex") { //Hex
+    console.log("hex");
+  } else if (command === "rgb") { //Convert rgb
+    console.log("rgb");
+  } else if (command === "hsl") { //Convert hsl
+    console.log("hsl");
+  } else if (command === "hwb") { //Convert hwb
+    console.log("hwb");
+  } else if (command === "cmyk") { //Convert cmyk
+    console.log("cmyk");
+  } else if (command === "ncol") { //Cpnvert ncol
+    console.log("ncol");
+  }
 
   console.log(command + "," + args);
 });
