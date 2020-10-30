@@ -23,7 +23,7 @@ function mlog(status, type, message) {
       console.log("[".white + ctime.join(":").cyan + " ERROR".red + "]: " + type.white + " - ".white + message.white);
       break;
   }
-} 
+}
 
 //Does initial setup when client is ready
 client.on("ready", () => {
@@ -42,6 +42,11 @@ client.on("ready", () => {
 client.on("message", (message) => {
   if (!message.content.startsWith(config.prefix) || message.author.bot) return; //Ignore messages missing prefix or sent by another bot
 
+  const commandBody = message.content.slice(config.prefix.length);  //Slice the prefix off
+  const args = commandBody.split(' ');  //Splits command and args into an array
+  const command = args.shift().toLowerCase(); //Takes first element from the args array as the command
+
+  console.log(command + "," + args);
 });
 
 client.login(config.token); //Log in bot using token from config
